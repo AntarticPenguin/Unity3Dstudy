@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1bbba890b9555ad4bbccda733e18859f
-timeCreated: 1518344974
+guid: 120560cb1f158b449bb033a1c03f5752
+timeCreated: 1518440521
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -105,22 +105,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mt_body
-    second: {fileID: 2100000, guid: ee71a321c370d624eb6e9f534e27f8a5, type: 2}
+    second: {fileID: 2100000, guid: 423eaf8d7d2259c4f9324d798aac6014, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mt_color
-    second: {fileID: 2100000, guid: 3a0a8d102d88606438874272b2b7473b, type: 2}
+    second: {fileID: 2100000, guid: 66c6ed223a2a47343b8ab0703472f9f8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mt_hair
-    second: {fileID: 2100000, guid: be23169972a8f2a43a9ead9eb50a8d61, type: 2}
+    second: {fileID: 2100000, guid: 4964f1b220ce3d8468c8c55e18b665ef, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mt_weapon
-    second: {fileID: 2100000, guid: a2a62073847483648af06ce27785b7c2, type: 2}
+    second: {fileID: 2100000, guid: 5e769bfb9dbf4e44fa4a23542111edbb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 0534788cba125ae4c91e56583fd4c53e
-timeCreated: 1518344973
+guid: a3f384624ed1fc44bb575e9dc47c762f
+timeCreated: 1518440564
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -93,7 +93,12 @@ ModelImporter:
     13700000: EYE
     13700002: RUVret
     13700004: TEETHret
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Warg_col_001
+    second: {fileID: 2100000, guid: be91d8dc6ce335b4c83c29129d8ebb3d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

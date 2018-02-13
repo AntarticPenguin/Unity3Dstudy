@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 83b508bf7f2480241a85f2777b30438d
-timeCreated: 1518344974
+guid: 57aac1aca69efdc44abee12e997324a7
+timeCreated: 1518440564
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -107,7 +107,12 @@ ModelImporter:
     4300000: LOWDRG
     9500000: //RootNode
     13700000: LOWDRG
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dragon_col_001
+    second: {fileID: 2100000, guid: 4014410e807b4e440a57496b831b581e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
