@@ -43,7 +43,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -89,7 +89,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: 91c1cb73457c4464dadafb600ef20983,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -258,13 +259,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 417626616}
-  m_LocalRotation: {x: 0.27078727, y: 0.00775067, z: 0.014092685, w: 0.9625049}
-  m_LocalPosition: {x: -0.114, y: 3.03, z: -2.74}
+  m_LocalRotation: {x: 0.14639252, y: 0.00947721, z: 0.012994579, w: 0.9890958}
+  m_LocalPosition: {x: -0.114, y: 2.1, z: -2.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 487828497}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 31.403002, y: 1.514, z: 2.1030002}
+  m_LocalEulerAnglesHint: {x: 16.819, y: 1.35, z: 1.705}
 --- !u!1 &440407511
 GameObject:
   m_ObjectHideFlags: 0
