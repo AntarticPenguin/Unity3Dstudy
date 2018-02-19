@@ -183,7 +183,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 954219292}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &417626616
 GameObject:
@@ -259,13 +259,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 417626616}
-  m_LocalRotation: {x: 0.14639252, y: 0.00947721, z: 0.012994579, w: 0.9890958}
-  m_LocalPosition: {x: -0.114, y: 2.1, z: -2.8}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 487828497}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 16.819, y: 1.35, z: 1.705}
+  m_Father: {fileID: 1632104694}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &440407511
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +330,7 @@ Transform:
   m_Children:
   - {fileID: 782444412}
   m_Father: {fileID: 954219292}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!1 &487828496
 GameObject:
@@ -360,9 +360,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2058655715}
-  - {fileID: 417626620}
   m_Father: {fileID: 954219292}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &487828498
 MonoBehaviour:
@@ -375,6 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f5af2532576dd4c97f881d5d7fa0a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterVisual: {fileID: 910179783}
 --- !u!143 &487828499
 CharacterController:
   m_ObjectHideFlags: 0
@@ -457,6 +457,10 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &910179783 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100044, guid: 120560cb1f158b449bb033a1c03f5752, type: 3}
+  m_PrefabInternal: {fileID: 2058655714}
 --- !u!1 &954219291
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +487,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1632104694}
   - {fileID: 440407513}
   - {fileID: 134407284}
   - {fileID: 487828497}
@@ -500,6 +505,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6863820e3855a974bb7d457f33554d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1632104693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1632104694}
+  - component: {fileID: 1632104695}
+  m_Layer: 0
+  m_Name: GameCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1632104694
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1632104693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 417626620}
+  m_Father: {fileID: 954219292}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1632104695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1632104693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1300ad0f6748343a6099fcee06dfe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lookTarget: {fileID: 487828498}
 --- !u!1001 &2058655714
 Prefab:
   m_ObjectHideFlags: 0
@@ -539,6 +586,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 120560cb1f158b449bb033a1c03f5752, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5343c99718abf6448ae2690479deb8d9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 120560cb1f158b449bb033a1c03f5752, type: 3}
   m_IsPrefabParent: 0

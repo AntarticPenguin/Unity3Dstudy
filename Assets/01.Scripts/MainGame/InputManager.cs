@@ -24,33 +24,56 @@ public class InputManager
 
     public void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            MouseDown();
+            if (eButtonState.UP == _buttonState)
+            {
+                ButtonDown();
+            }
+            else if (eButtonState.DOWN == _buttonState)
+            {
+                ButtonHold();
+            }
         }
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
-            MouseUp();
+            ButtonUp();
         }
     }
 
     //Mouse Input
-
-    bool _isMouseDown = false;
-
-    void MouseDown()
+    
+    enum eButtonState
     {
-        _isMouseDown = true;
+        DOWN,
+        HOLD,
+        UP,
+    }
+    eButtonState _buttonState = eButtonState.UP;
+
+    void ButtonDown()
+    {
+        _buttonState = eButtonState.DOWN;
     }
 
-    void MouseUp()
+    void ButtonHold()
     {
-        _isMouseDown = false;
+        _buttonState = eButtonState.HOLD;
+    }
+
+    void ButtonUp()
+    {
+        _buttonState = eButtonState.UP;
     }
 
     public bool IsMouseDown()
     {
-        return _isMouseDown;
+        return (eButtonState.DOWN == _buttonState);
+    }
+
+    public bool IsMouseHold()
+    {
+        return (eButtonState.HOLD == _buttonState);
     }
 
     public Vector3 GetCursorPosition()

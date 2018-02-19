@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public GameObject _characterVisual;
 
     //Unity Functions
 
-	void Start ()
+    void Start ()
     {
         InitState();
 	}
@@ -75,7 +76,7 @@ public class Character : MonoBehaviour
     }
 
 
-    //Move
+    //Move && Rotate
 
     Vector3 _targetPosition = Vector3.zero;
 
@@ -99,5 +100,17 @@ public class Character : MonoBehaviour
         gameObject.GetComponent<CharacterController>().Move(velocity);
     }
 
+    public void Rotate(Vector3 direction)
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360.0f * Time.deltaTime);
+    }
 
+
+    //Animation
+        
+    public void SetAnimationTrigger(string trigger)
+    {
+        _characterVisual.GetComponent<Animator>().SetTrigger(trigger);
+    }
 }

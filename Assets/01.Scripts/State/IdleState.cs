@@ -6,6 +6,7 @@ public class IdleState : State
 {
     override public void Start()
     {
+        _character.SetAnimationTrigger("IDLE");
     }
 
     override public void Stop()
