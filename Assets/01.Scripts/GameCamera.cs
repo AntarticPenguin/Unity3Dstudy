@@ -8,8 +8,8 @@ public class GameCamera : MonoBehaviour {
 
 	void Start ()
     {
-		
-	}
+        
+    }
 	
 	void Update ()
     {
@@ -21,6 +21,7 @@ public class GameCamera : MonoBehaviour {
             transform.position = startLookPosition + relativePos;
 
             Vector3 endLookPosition = _lookTarget.GetPosition() + _offset;
+            transform.position = _lookTarget.GetTransform().TransformPoint(relativePos);
             transform.LookAt(endLookPosition);
         }
 	}
@@ -29,9 +30,8 @@ public class GameCamera : MonoBehaviour {
     //Camera
 
     public Character _lookTarget = null;
-    float _verticalAngle = 10.0f;
+    float _verticalAngle = 20.0f;
     float _horizontalAngle = 0.0f;
     float _distance = 5.0f;
     Vector3 _offset = new Vector3(0.0f, 1.5f, 0.0f);
-
 }

@@ -106,9 +106,14 @@ public class Character : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360.0f * Time.deltaTime);
     }
 
+   public Transform GetTransform()
+    {
+        return transform;
+    }
+
 
     //Animation
-        
+
     public void SetAnimationTrigger(string trigger)
     {
         _characterVisual.GetComponent<Animator>().SetTrigger(trigger);
