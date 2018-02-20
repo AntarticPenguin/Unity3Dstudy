@@ -29,8 +29,8 @@ public class GameCamera : MonoBehaviour {
 
     //Camera
 
-    public Character _lookTarget = null;
-    float _verticalAngle = 20.0f;
+    public Player _lookTarget = null;
+    float _verticalAngle = 45.0f;
     float _horizontalAngle = 0.0f;
     float _distance = 5.0f;
     Vector3 _offset = new Vector3(0.0f, 1.5f, 0.0f);

@@ -6,34 +6,22 @@ public class Character : MonoBehaviour
 {
     public GameObject _characterVisual;
 
-    //Unity Functions
+    //UnityFunctions
 
     void Start ()
     {
         InitState();
+    }
+	
+	void Update ()
+    {
+        UpdateCharacter();	
 	}
 
-    void Update()
+    virtual public void UpdateCharacter()
     {
         UpdateChangeState();
-        UpdateInput();
         _stateMap[_stateType].Update();
-    }
-
-    void UpdateInput()
-    {
-        if (InputManager.Instance.IsMouseDown())
-        {
-            Vector3 mousePosition = InputManager.Instance.GetCursorPosition();
-
-            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-            RaycastHit hitInfo;
-            if (Physics.Raycast(ray, out hitInfo, 100.0f, 1 << LayerMask.NameToLayer("Ground")))
-            {
-                _targetPosition = hitInfo.point;
-                _stateMap[_stateType].UpdateInput();
-            }
-        }
     }
 
 
@@ -44,10 +32,10 @@ public class Character : MonoBehaviour
         IDLE,
         MOVE,
     }
-    eState _stateType = eState.IDLE;
-    eState _nextStateType = eState.IDLE;
 
-    Dictionary<eState, State> _stateMap = new Dictionary<eState, State>();
+    protected Dictionary<eState, State> _stateMap = new Dictionary<eState, State>();
+    protected eState _stateType = eState.IDLE;
+    eState _nextStateType = eState.IDLE;
 
     void InitState()
     {
@@ -78,7 +66,7 @@ public class Character : MonoBehaviour
 
     //Move && Rotate
 
-    Vector3 _targetPosition = Vector3.zero;
+    protected Vector3 _targetPosition = Vector3.zero;
 
     public Vector3 GetPosition()
     {
@@ -106,7 +94,7 @@ public class Character : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360.0f * Time.deltaTime);
     }
 
-   public Transform GetTransform()
+    public Transform GetTransform()
     {
         return transform;
     }

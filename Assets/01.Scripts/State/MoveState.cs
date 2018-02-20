@@ -38,7 +38,7 @@ public class MoveState : State
         }
         else
         {
-            _character.ChangeState(Character.eState.IDLE);
+            _character.ChangeState(Player.eState.IDLE);
         }
 
         //현재 속도를 보관한다
