@@ -86,6 +86,9 @@ public class Character : MonoBehaviour
     public void Move(Vector3 velocity)
     {
         gameObject.GetComponent<CharacterController>().Move(velocity);
+        Vector3 position = transform.position;
+        position.y = 0;
+        transform.position = position;
     }
 
     public void Rotate(Vector3 direction)
