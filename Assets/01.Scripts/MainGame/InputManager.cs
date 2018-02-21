@@ -39,6 +39,22 @@ public class InputManager
         {
             ButtonUp();
         }
+
+        if(Input.GetMouseButton(1))
+        {
+            if (eButtonState.UP == _attackButtonState)
+            {
+                AttackButtonDown();
+            }
+            else if (eButtonState.DOWN == _attackButtonState)
+            {
+                AttackButtonHold();
+            }
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            AttackButtonUp();
+        }
     }
 
     //Mouse Input
@@ -74,6 +90,31 @@ public class InputManager
     public bool IsMouseHold()
     {
         return (eButtonState.HOLD == _buttonState);
+    }
+
+
+    //Attack
+
+    eButtonState _attackButtonState = eButtonState.UP;
+
+    void AttackButtonDown()
+    {
+        _attackButtonState = eButtonState.DOWN;
+    }
+
+    void AttackButtonHold()
+    {
+        _attackButtonState = eButtonState.HOLD;
+    }
+
+    void AttackButtonUp()
+    {
+        _attackButtonState = eButtonState.UP;
+    }
+
+    public bool IsAttackButtonDown()
+    {
+        return (eButtonState.DOWN == _attackButtonState);
     }
 
     public Vector3 GetCursorPosition()

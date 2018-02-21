@@ -31,6 +31,7 @@ public class Character : MonoBehaviour
     {
         IDLE,
         MOVE,
+        ATTACK,
     }
 
     protected Dictionary<eState, State> _stateMap = new Dictionary<eState, State>();
@@ -41,12 +42,15 @@ public class Character : MonoBehaviour
     {
         State idleState = new IdleState();
         State moveState = new MoveState();
+        State attackState = new AttackState();
 
         idleState.Init(this);
         moveState.Init(this);
+        attackState.Init(this);
 
         _stateMap.Add(eState.IDLE, idleState);
         _stateMap.Add(eState.MOVE, moveState);
+        _stateMap.Add(eState.ATTACK, attackState);
     }
 
     public void ChangeState(eState stateType)
@@ -103,10 +107,38 @@ public class Character : MonoBehaviour
     }
 
 
+    //Attack
+
+    AttackDetector[] _attackDetectors;
+
+    void InitAttackInfo()
+    {
+        _attackDetectors = GetComponentsInChildren<AttackDetector>();
+
+    }
+
+    public void AttackStart()
+    {
+        for (int i = 0; i < _attackDetectors.Length; i++)
+            _attackDetectors[i].Enable();
+    }
+
+    public void AttackEnd()
+    {
+        for (int i = 0; i < _attackDetectors.Length; i++)
+            _attackDetectors[i].Disable();
+    }
+
+
     //Animation
 
     public void SetAnimationTrigger(string trigger)
     {
         _characterVisual.GetComponent<Animator>().SetTrigger(trigger);
+    }
+
+    public AnimationPlayer GetAnimationPlayer()
+    {
+        return _characterVisual.GetComponent<AnimationPlayer>();
     }
 }

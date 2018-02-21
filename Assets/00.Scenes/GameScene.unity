@@ -129,7 +129,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 85856136}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.25
   m_Height: 0.7
@@ -369,7 +369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &487828497
 Transform:
   m_ObjectHideFlags: 0
@@ -561,7 +561,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 840320039}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9f5af2532576dd4c97f881d5d7fa0a0, type: 3}
   m_Name: 
@@ -588,6 +588,17 @@ CharacterController:
 GameObject:
   m_PrefabParentObject: {fileID: 100044, guid: 120560cb1f158b449bb033a1c03f5752, type: 3}
   m_PrefabInternal: {fileID: 2058655714}
+--- !u!114 &910179784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 910179783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edcec77e3819fdc40b3a107ec59be694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &954219291
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +714,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1025072369}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.36
   m_Height: 1.5
@@ -792,7 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1300ad0f6748343a6099fcee06dfe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lookTarget: {fileID: 840320041}
+  _lookTarget: {fileID: 487828498}
 --- !u!1001 &2058655714
 Prefab:
   m_ObjectHideFlags: 0

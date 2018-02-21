@@ -24,5 +24,9 @@ public class Player : Character
                 _stateMap[_stateType].UpdateInput();
             }
         }
+        if(InputManager.Instance.IsAttackButtonDown())
+        {
+            ChangeState(eState.ATTACK);
+        }
     }
 }

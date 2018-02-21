@@ -15,11 +15,7 @@ public class IdleState : State
 
     override public void Update()
     {
-        //for test ATTACK Animation
-        if (Input.GetMouseButtonDown(1))
-        {
-            _character.SetAnimationTrigger("ATTACK");
-        }
+
     }
 
     override public void UpdateInput()
