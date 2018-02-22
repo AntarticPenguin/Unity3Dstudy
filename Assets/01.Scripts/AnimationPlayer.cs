@@ -54,7 +54,6 @@ public class AnimationPlayer : MonoBehaviour
         if (null != _afterMidCallback)
             _afterMidCallback();
     }
-
     public void OnEndEvent()
     {
         if (null != _endCallback)
