@@ -16,6 +16,10 @@ public class AttackDetector : MonoBehaviour
 		
 	}
 
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("check: " + other);
+    }
 
     //Collider on/off
 

@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public enum eCharacterType
+    {
+        NONE,
+        MONSTER,
+        PLAYER,
+    }
+    protected eCharacterType _characterType = eCharacterType.NONE;
+
     public GameObject _characterVisual;
+
 
     //UnityFunctions
 
     void Start ()
     {
-        InitState();
-        InitAttackInfo();
+        Init();
     }
 	
 	void Update ()
@@ -33,6 +41,7 @@ public class Character : MonoBehaviour
         IDLE,
         MOVE,
         ATTACK,
+        CHASE,
     }
 
     protected Dictionary<eState, State> _stateMap = new Dictionary<eState, State>();
@@ -43,14 +52,17 @@ public class Character : MonoBehaviour
     {
         State idleState = new IdleState();
         State moveState = new MoveState();
+        State chaseState = new ChaseState();
         State attackState = new AttackState();
 
         idleState.Init(this);
         moveState.Init(this);
+        chaseState.Init(this);
         attackState.Init(this);
 
         _stateMap.Add(eState.IDLE, idleState);
         _stateMap.Add(eState.MOVE, moveState);
+        _stateMap.Add(eState.CHASE, chaseState);
         _stateMap.Add(eState.ATTACK, attackState);
     }
 
@@ -66,6 +78,21 @@ public class Character : MonoBehaviour
             _stateType = _nextStateType;
             _stateMap[_stateType].Start();
         }
+    }
+
+
+    //Type
+
+    virtual public void Init()
+    {
+        InitAttackInfo();
+        InitHitDetectorInfo();
+        InitState();
+    }
+
+    public eCharacterType GetCharacterType()
+    {
+        return _characterType;
     }
 
 
@@ -108,7 +135,7 @@ public class Character : MonoBehaviour
     }
 
 
-    //Attack
+    //Attack Detector
 
     AttackDetector[] _attackDetectors;
 
@@ -127,6 +154,18 @@ public class Character : MonoBehaviour
     {
         for (int i = 0; i < _attackDetectors.Length; i++)
             _attackDetectors[i].Disable();
+    }
+
+    
+    //Hit Detector
+
+    void InitHitDetectorInfo()
+    {
+        HitDetector[] hitDetectors = GetComponentsInChildren<HitDetector>();
+        for(int i = 0; i < hitDetectors.Length; i++)
+        {
+            hitDetectors[i].Init(this);
+        }
     }
 
 
