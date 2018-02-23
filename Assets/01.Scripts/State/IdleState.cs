@@ -11,11 +11,12 @@ public class IdleState : State
 
     override public void Stop()
     {
+        
     }
 
     override public void Update()
     {
-
+        
     }
 
     override public void UpdateInput()

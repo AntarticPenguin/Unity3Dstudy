@@ -42,13 +42,14 @@ public class Character : MonoBehaviour
         MOVE,
         ATTACK,
         CHASE,
+        PATROL,
     }
 
     protected Dictionary<eState, State> _stateMap = new Dictionary<eState, State>();
     protected eState _stateType = eState.IDLE;
     eState _nextStateType = eState.IDLE;
 
-    void InitState()
+    virtual protected void InitState()
     {
         State idleState = new IdleState();
         State moveState = new MoveState();
@@ -93,6 +94,19 @@ public class Character : MonoBehaviour
     public eCharacterType GetCharacterType()
     {
         return _characterType;
+    }
+
+
+    //Idle
+
+    public float GetRefreshTime()
+    {
+        return 5.0f;
+    }
+
+    public void Patrol()
+    {
+        ChangeState(eState.PATROL);
     }
 
 
