@@ -51,6 +51,7 @@ public class Character : MonoBehaviour
 
     virtual protected void InitState()
     {
+        //데이터 주도 프로그래밍: 스크립트로 다 빼기
         State idleState = new IdleState();
         State moveState = new MoveState();
         State chaseState = new ChaseState();
@@ -80,7 +81,10 @@ public class Character : MonoBehaviour
         if (_nextStateType != _stateType)
         {
             _stateType = _nextStateType;
-            _stateMap[_stateType].Start();
+            if (_stateMap.ContainsKey(_stateType))
+                _stateMap[_stateType].Start();
+            else
+                Debug.LogError("Can't find state " + _stateType + " of " + gameObject.name);
         }
     }
 
@@ -140,6 +144,11 @@ public class Character : MonoBehaviour
         transform.position = position;
     }
 
+    virtual public void ArrivedDestination()
+    {
+        ChangeState(Character.eState.IDLE);
+    }
+
     public void Rotate(Vector3 direction)
     {
         Quaternion targetRotation = Quaternion.LookRotation(direction);
@@ -196,15 +205,5 @@ public class Character : MonoBehaviour
     public AnimationPlayer GetAnimationPlayer()
     {
         return _characterVisual.GetComponent<AnimationPlayer>();
-    }
-
-
-    //WayPoints
-
-    public GameObject _wayPoints = null;
-
-    public GameObject GetWayPoints()
-    {
-        return _wayPoints;
     }
 }

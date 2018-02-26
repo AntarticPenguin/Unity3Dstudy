@@ -18,4 +18,12 @@ public class Monster : Character
         idleState.Init(this);
         _stateMap[eState.IDLE] = idleState;
     }
+
+    public List<WayPoint> _wayPointList;
+
+    override public void ArrivedDestination()
+    {
+        int index = Random.Range(0, _wayPointList.Count);
+        _targetPosition = _wayPointList[index].GetPosition();
+    }
 }

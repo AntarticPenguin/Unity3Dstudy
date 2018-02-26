@@ -38,11 +38,9 @@ public class MoveState : State
         }
         else
         {
-            _character.ChangeState(Character.eState.IDLE);
+            _character.ArrivedDestination();
+            //_character.ChangeState(Character.eState.IDLE);
         }
-
-        //현재 속도를 보관한다
-        //목적지에 가까이 왔으면 도착
     }
 
     override public void UpdateInput()

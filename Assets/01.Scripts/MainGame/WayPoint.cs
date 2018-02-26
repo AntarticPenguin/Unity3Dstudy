@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WayPoint : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+public class WayPoint : MonoBehaviour
+{
+	void Start ()
+    {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
+
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
 }
