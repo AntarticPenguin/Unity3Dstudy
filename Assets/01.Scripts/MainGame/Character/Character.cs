@@ -55,16 +55,19 @@ public class Character : MonoBehaviour
         State moveState = new MoveState();
         State chaseState = new ChaseState();
         State attackState = new AttackState();
+        State patrolState = new PatrolState();
 
         idleState.Init(this);
         moveState.Init(this);
         chaseState.Init(this);
         attackState.Init(this);
+        patrolState.Init(this);
 
         _stateMap.Add(eState.IDLE, idleState);
         _stateMap.Add(eState.MOVE, moveState);
         _stateMap.Add(eState.CHASE, chaseState);
         _stateMap.Add(eState.ATTACK, attackState);
+        _stateMap.Add(eState.PATROL, patrolState);
     }
 
     public void ChangeState(eState stateType)
@@ -101,7 +104,7 @@ public class Character : MonoBehaviour
 
     public float GetRefreshTime()
     {
-        return 5.0f;
+        return 3.0f;
     }
 
     public void Patrol()
@@ -193,5 +196,15 @@ public class Character : MonoBehaviour
     public AnimationPlayer GetAnimationPlayer()
     {
         return _characterVisual.GetComponent<AnimationPlayer>();
+    }
+
+
+    //WayPoints
+
+    public GameObject _wayPoints = null;
+
+    public GameObject GetWayPoints()
+    {
+        return _wayPoints;
     }
 }

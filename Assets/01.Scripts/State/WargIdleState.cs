@@ -12,6 +12,7 @@ public class WargIdleState : IdleState
         _waitTime += Time.deltaTime;
         if (_character.GetRefreshTime() <= _waitTime)
         {
+            Debug.Log("Warg Starts Patrol");
             _character.Patrol();
             _waitTime = 0.0f;
         }

@@ -15,6 +15,7 @@ public class Monster : Character
         base.InitState();
 
         State idleState = new WargIdleState();
+        idleState.Init(this);
         _stateMap[eState.IDLE] = idleState;
     }
 }
