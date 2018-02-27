@@ -120,6 +120,7 @@ public class Character : MonoBehaviour
     //Move && Rotate
 
     protected Vector3 _targetPosition = Vector3.zero;
+    protected GameObject _targetObject = null;
 
     public Vector3 GetPosition()
     {
@@ -129,6 +130,11 @@ public class Character : MonoBehaviour
     public Vector3 GetTargetPosition()
     {
         return _targetPosition;
+    }
+
+    public GameObject GetTargetObject()
+    {
+        return _targetObject;
     }
 
     public bool IsGround()
@@ -160,6 +166,15 @@ public class Character : MonoBehaviour
         return transform;
     }
 
+
+    //Atttack
+
+    float _attackRange = 1.0f;
+
+    public float GetAttackRange()
+    {
+        return _attackRange;
+    }
 
     //Attack Detector
 

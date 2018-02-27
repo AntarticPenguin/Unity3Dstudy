@@ -19,7 +19,9 @@ public class ChaseState : State
     override public void Update()
     {
         //목적지까지의 거리와 방향을 구한다
-        Vector3 destination = _character.GetTargetPosition();
+        //Vector3 destination = _character.GetTargetPosition();
+        GameObject targetObject = _character.GetTargetObject();
+        Vector3 destination = targetObject.transform.position;
         destination.y = _character.GetPosition().y;        //높이를 같게 하여 x,z축이 회전하지 않도록 함
         Vector3 direction = (destination - _character.GetPosition()).normalized;
         _velocity = direction * 6.0f;
@@ -30,13 +32,14 @@ public class ChaseState : State
 
         //목적지와 현재 위치가 일정 거리 이상이면 -> 이동
         float distance = Vector3.Distance(destination, _character.GetPosition());
-        if (0.5f < distance)
+        if (_character.GetAttackRange() < distance)
         {
             _character.Rotate(direction);
             _character.Move(_velocity * Time.deltaTime + snapGround);
         }
         else
         {
+            Debug.Log("Chase->Attack");
             _character.ChangeState(Character.eState.ATTACK);
         }
     }

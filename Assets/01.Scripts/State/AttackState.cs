@@ -6,7 +6,8 @@ public class AttackState : State
 {
     override public void Start()
     {
-        //_character.SetAnimationTrigger("ATTACK");
+        Debug.Log("Attack!");
+
         _character.GetAnimationPlayer().Play("ATTACK", null,
         () =>
         {

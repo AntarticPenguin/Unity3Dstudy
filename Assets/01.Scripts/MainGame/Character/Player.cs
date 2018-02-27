@@ -43,7 +43,8 @@ public class Player : Character
                     {
                         case eCharacterType.MONSTER:
                             //적으로 파악 => 추적 state
-                            _targetPosition = hitInfo.collider.transform.position;
+                            //_targetPosition = hitInfo.collider.transform.position;
+                            _targetObject = hitInfo.collider.gameObject;
                             ChangeState(eState.CHASE);
                             break;
                     }

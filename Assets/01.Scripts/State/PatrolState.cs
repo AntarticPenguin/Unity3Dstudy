@@ -31,7 +31,7 @@ public class PatrolState : State
 
         //목적지와 현재 위치가 일정 거리 이상이면 -> 이동
         float distance = Vector3.Distance(_destination, _character.GetPosition());
-        if (0.5f < distance)
+        if (_character.GetAttackRange() < distance)
         {
             _character.Rotate(direction);
             _character.Move(_velocity * Time.deltaTime + snapGround);
