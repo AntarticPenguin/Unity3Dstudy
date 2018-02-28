@@ -25,7 +25,7 @@ public class Player : Character
             Ray ray = Camera.main.ScreenPointToRay(mousePosition);
             RaycastHit hitInfo;
             if (Physics.Raycast(ray, out hitInfo, 100.0f, 1 << LayerMask.NameToLayer("Ground")
-                                                         |1 << LayerMask.NameToLayer("Character")))
+                                                         |1 << LayerMask.NameToLayer("HitArea")))
             {
                 //지면 클릭
                 if(LayerMask.NameToLayer("Ground") == hitInfo.collider.gameObject.layer)
@@ -35,9 +35,10 @@ public class Player : Character
                 }
                 
                 //캐릭터 클릭
-                if(LayerMask.NameToLayer("Character") == hitInfo.collider.gameObject.layer)
+                if(LayerMask.NameToLayer("HitArea") == hitInfo.collider.gameObject.layer)
                 {
-                    HitDetector hitDetector = hitInfo.collider.GetComponent<HitDetector>();
+                    Debug.Log("HITAREA");
+                    HitArea hitDetector = hitInfo.collider.GetComponent<HitArea>();
                     Character character = hitDetector.GetCharacter();
                     switch (character.GetCharacterType())
                     {

@@ -94,7 +94,7 @@ public class Character : MonoBehaviour
     virtual public void Init()
     {
         InitAttackInfo();
-        InitHitDetectorInfo();
+        InitHitAreaInfo();
         InitState();
     }
 
@@ -169,43 +169,43 @@ public class Character : MonoBehaviour
 
     //Atttack
 
-    float _attackRange = 1.0f;
+    protected float _attackRange = 1.0f;
 
     public float GetAttackRange()
     {
         return _attackRange;
     }
 
-    //Attack Detector
+    //Attack Area
 
-    AttackDetector[] _attackDetectors;
+    AttackArea[] _attackArea;
 
     void InitAttackInfo()
     {
-        _attackDetectors = GetComponentsInChildren<AttackDetector>();
+        _attackArea = GetComponentsInChildren<AttackArea>();
     }
 
     public void AttackStart()
     {
-        for (int i = 0; i < _attackDetectors.Length; i++)
-            _attackDetectors[i].Enable();
+        for (int i = 0; i < _attackArea.Length; i++)
+            _attackArea[i].Enable();
     }
 
     public void AttackEnd()
     {
-        for (int i = 0; i < _attackDetectors.Length; i++)
-            _attackDetectors[i].Disable();
+        for (int i = 0; i < _attackArea.Length; i++)
+            _attackArea[i].Disable();
     }
 
     
-    //Hit Detector
+    //Hit Area
 
-    void InitHitDetectorInfo()
+    void InitHitAreaInfo()
     {
-        HitDetector[] hitDetectors = GetComponentsInChildren<HitDetector>();
-        for(int i = 0; i < hitDetectors.Length; i++)
+        HitArea[] hitArea = GetComponentsInChildren<HitArea>();
+        for(int i = 0; i < hitArea.Length; i++)
         {
-            hitDetectors[i].Init(this);
+            hitArea[i].Init(this);
         }
     }
 

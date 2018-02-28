@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackDetector : MonoBehaviour
+public class AttackArea : MonoBehaviour
 {
     //Unity Functions
 

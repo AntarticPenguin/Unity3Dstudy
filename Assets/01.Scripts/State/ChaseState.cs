@@ -39,7 +39,6 @@ public class ChaseState : State
         }
         else
         {
-            Debug.Log("Chase->Attack");
             _character.ChangeState(Character.eState.ATTACK);
         }
     }

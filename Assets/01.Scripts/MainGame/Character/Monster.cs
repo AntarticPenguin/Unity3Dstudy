@@ -8,6 +8,8 @@ public class Monster : Character
     {
         base.Init();
         _characterType = eCharacterType.MONSTER;
+
+        _attackRange = 2.0f;
     }
 
     override protected void InitState()
@@ -29,7 +31,7 @@ public class Monster : Character
 
     private void OnTriggerEnter(Collider other)
     {
-        if(LayerMask.NameToLayer("CharacterCtrl") == other.gameObject.layer)
+        if(LayerMask.NameToLayer("Character") == other.gameObject.layer)
         {
             Character character = other.gameObject.GetComponent<Character>();
             if( eCharacterType.PLAYER == character.GetCharacterType())

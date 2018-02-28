@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitDetector : MonoBehaviour {
+public class HitArea : MonoBehaviour {
 
     public void Init(Character character)
     {

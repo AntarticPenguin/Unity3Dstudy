@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - Ground
+  - HitArea
   - Character
-  - CharacterCtrl
   - 
   - 
   - 
