@@ -9,7 +9,8 @@ public class Monster : Character
         base.Init();
         _characterType = eCharacterType.MONSTER;
 
-        _attackRange = 2.0f;
+        _speed = 8.0f;
+        _attackRange = 1.5f;
     }
 
     override protected void InitState()
@@ -27,6 +28,18 @@ public class Monster : Character
     {
         int index = Random.Range(0, _wayPointList.Count);
         _targetPosition = _wayPointList[index].GetPosition();
+    }
+
+    override public void StopChase()
+    {
+        ChangeState(eState.PATROL);
+    }
+
+    override public bool CanChase(float distance)
+    {
+        if (10.0f < distance)
+            return false;
+        return true;
     }
 
     private void OnTriggerEnter(Collider other)

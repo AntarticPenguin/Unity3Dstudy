@@ -14,16 +14,11 @@ public class PatrolState : State
         _character.SetAnimationTrigger("MOVE");
     }
 
-    override public void Stop()
-    {
-
-    }
-
     override public void Update()
     {
         _destination.y = _character.GetPosition().y;
         Vector3 direction = (_destination - _character.GetPosition()).normalized;
-        _velocity = direction * 4.0f;
+        _velocity = direction * _character.GetSpeed();
 
         Vector3 snapGround = Vector3.zero;
         if (_character.IsGround())
@@ -41,10 +36,5 @@ public class PatrolState : State
             _character.ArrivedDestination();
             _destination = _character.GetTargetPosition();
         }
-    }
-
-    override public void UpdateInput()
-    {
-        
     }
 }

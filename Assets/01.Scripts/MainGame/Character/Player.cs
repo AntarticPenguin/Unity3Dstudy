@@ -27,24 +27,22 @@ public class Player : Character
             if (Physics.Raycast(ray, out hitInfo, 100.0f, 1 << LayerMask.NameToLayer("Ground")
                                                          |1 << LayerMask.NameToLayer("HitArea")))
             {
-                //지면 클릭
                 if(LayerMask.NameToLayer("Ground") == hitInfo.collider.gameObject.layer)
                 {
                     _targetPosition = hitInfo.point;
-                    _stateMap[_stateType].UpdateInput();
+                    _targetObject = null;
+                    _isSetMovePosition = true;
+                    //_stateMap[_stateType].UpdateInput();
                 }
                 
-                //캐릭터 클릭
                 if(LayerMask.NameToLayer("HitArea") == hitInfo.collider.gameObject.layer)
                 {
-                    Debug.Log("HITAREA");
                     HitArea hitDetector = hitInfo.collider.GetComponent<HitArea>();
                     Character character = hitDetector.GetCharacter();
                     switch (character.GetCharacterType())
                     {
                         case eCharacterType.MONSTER:
                             //적으로 파악 => 추적 state
-                            //_targetPosition = hitInfo.collider.transform.position;
                             _targetObject = hitInfo.collider.gameObject;
                             ChangeState(eState.CHASE);
                             break;
@@ -58,5 +56,16 @@ public class Player : Character
         {
             ChangeState(eState.ATTACK);
         }
+    }
+
+    override public void StopChase()
+    {
+        Debug.Log("Player: StopChase and ChangeState(IDLE)");
+        ChangeState(eState.IDLE);
+    }
+
+    override public bool CanChase(float distance)
+    {
+        return true;
     }
 }

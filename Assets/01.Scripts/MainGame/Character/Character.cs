@@ -80,6 +80,8 @@ public class Character : MonoBehaviour
     {
         if (_nextStateType != _stateType)
         {
+            _stateMap[_stateType].Stop();
+
             _stateType = _nextStateType;
             if (_stateMap.ContainsKey(_stateType))
                 _stateMap[_stateType].Start();
@@ -121,6 +123,8 @@ public class Character : MonoBehaviour
 
     protected Vector3 _targetPosition = Vector3.zero;
     protected GameObject _targetObject = null;
+    protected float _speed = 6.0f;
+    protected bool _isSetMovePosition = false;
 
     public Vector3 GetPosition()
     {
@@ -137,9 +141,29 @@ public class Character : MonoBehaviour
         return _targetObject;
     }
 
+    public void SetTargetObject(GameObject targetObject)
+    {
+        _targetObject = targetObject;
+    }
+
+    public float GetSpeed()
+    {
+        return _speed;
+    }
+
     public bool IsGround()
     {
         return gameObject.GetComponent<CharacterController>().isGrounded;
+    }
+
+    public void SetMovePosition(bool setMovePosition)
+    {
+        _isSetMovePosition = setMovePosition;
+    }
+
+    public bool IsSetMovePosition()
+    {
+        return _isSetMovePosition;
     }
 
     public void Move(Vector3 velocity)
@@ -220,5 +244,19 @@ public class Character : MonoBehaviour
     public AnimationPlayer GetAnimationPlayer()
     {
         return _characterVisual.GetComponent<AnimationPlayer>();
+    }
+
+
+    //Chase
+    virtual public void StopChase()
+    {
+
+    }
+
+    virtual public bool CanChase(float distance)
+    {
+        if (5.0f < distance)
+            return false;
+        return true;
     }
 }

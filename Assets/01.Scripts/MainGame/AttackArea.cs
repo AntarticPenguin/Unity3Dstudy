@@ -18,7 +18,7 @@ public class AttackArea : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("check: " + other);
+        //Debug.Log("check: " + other);
     }
 
     //Collider on/off

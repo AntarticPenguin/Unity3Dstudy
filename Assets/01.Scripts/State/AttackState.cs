@@ -25,21 +25,8 @@ public class AttackState : State
         });
     }
 
-    override public void Stop()
-    {
-    }
-
     override public void Update()
     {
         
-    }
-
-    override public void UpdateInput()
-    {
-        //콤보 어택 처리
-        //if(true == _isCombo)
-        //{
-        //    //처리
-        //}
     }
 }
